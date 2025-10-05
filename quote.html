@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Request a Heat Pump Quote | APEX Heating & Cooling</title>
+<meta name="description" content="Request a custom heat pump quote from APEX Heating & Cooling. Fast turnaround and CleanBC rebate guidance.">
+<link rel="canonical" href="https://apexheatpumps.ca/quote">
+<style>
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#111;background:#f5f7fa}
+a{color:inherit;text-decoration:none}
+header.apx-header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;background:#fff;box-shadow:0 1px 6px rgba(0,0,0,.08)}
+header.apx-header nav a{margin:0 8px;text-decoration:underline}
+main{max-width:880px;margin:0 auto;padding:48px 16px}
+form{background:#fff;padding:32px;border-radius:16px;box-shadow:0 12px 32px rgba(15,23,42,.12);display:grid;gap:18px}
+h1{margin-bottom:1rem}
+label{display:grid;gap:6px;font-weight:600}
+input,select,textarea{padding:12px;border:1px solid #d0d7de;border-radius:8px;font:inherit}
+textarea{min-height:140px}
+button{background:#ff6b35;color:#fff;border:0;border-radius:10px;padding:13px 18px;font-weight:700;cursor:pointer}
+.small{font-size:.9rem;color:#5f6368}
+footer.apx-footer{margin-top:56px;padding:24px 16px;text-align:center;color:#666;font-size:.9rem}
+.hp{position:absolute;left:-9999px}
+</style>
+</head>
+<body>
+<header class="apx-header">
+  <a href="/" class="logo" aria-label="APEX Heat Pumps home">APEX Heat Pumps</a>
+  <nav aria-label="Primary navigation">
+    <a href="/">Home</a>
+    <a href="/services">Services</a>
+    <a href="/rebates">Rebates</a>
+    <a href="/contact">Contact</a>
+  </nav>
+</header>
+<main>
+  <p class="breadcrumbs"><a href="/">Home</a> › Quote</p>
+  <h1>Request a Free Heat Pump Quote</h1>
+  <p>Share a few project details and we will prepare a tailored estimate that includes equipment recommendations, available rebates, and installation timelines.</p>
+  <form action="https://api.web3forms.com/submit" method="post">
+    <input type="hidden" name="access_key" value="a4c3f5af-0f1b-4ca7-9dfd-90c5a7931022">
+    <input type="hidden" name="from_name" value="APEX Heat Pumps Website">
+    <input type="hidden" name="subject" value="New heat pump quote request">
+    <label>
+      Name
+      <input type="text" name="name" required>
+    </label>
+    <label>
+      Email
+      <input type="email" name="email" required>
+    </label>
+    <label>
+      Phone number
+      <input type="tel" name="phone" inputmode="tel" pattern="[0-9\s\-()+]+">
+    </label>
+    <label>
+      Service type
+      <select name="service" required>
+        <option value="Heat Pump Installation">Heat Pump Installation</option>
+        <option value="Emergency Repair">Emergency Repair</option>
+        <option value="Maintenance">Maintenance</option>
+        <option value="Gas Furnace Retrofit">Gas Furnace Retrofit</option>
+      </select>
+    </label>
+    <label>
+      Project details
+      <textarea name="message" placeholder="Tell us about your home, existing equipment, and timeline" required></textarea>
+    </label>
+    <input type="text" name="website" autocomplete="off" tabindex="-1" class="hp">
+    <button type="submit">Submit request</button>
+    <p class="small">We will respond within one business day. For urgent repairs, please call <a href="tel:6044426711">604-442-6711</a>.</p>
+  </form>
+</main>
+<footer class="apx-footer">
+  <p>© APEX Heating & Cooling Ltd. | 604-442-6711 | info@apexheatpumps.ca</p>
+</footer>
+</body>
+</html>
