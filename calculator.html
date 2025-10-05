@@ -40,6 +40,11 @@
       font-size: clamp(1.5rem, 2vw, 2rem);
       letter-spacing: 0.02em;
     }
+    header nav {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
     header nav a {
       text-decoration: none;
       font-weight: 600;
@@ -50,6 +55,23 @@
     header nav a:hover,
     header nav a:focus {
       background: rgba(255, 255, 255, 0.12);
+    }
+    .header-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .header-actions a {
+      text-decoration: none;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      transition: background 0.2s ease;
+    }
+    .header-actions a:hover,
+    .header-actions a:focus {
+      background: rgba(255, 255, 255, 0.22);
     }
     main {
       padding: clamp(24px, 5vw, 60px) clamp(16px, 6vw, 80px);
@@ -188,11 +210,17 @@
 <body>
   <header>
     <h1>APEX Heat Pumps</h1>
-    <nav aria-label="Calculator navigation">
-      <a href="/">Home</a>
+    <nav aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="rebates.html">Rebates</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="header-actions" aria-label="Get in touch">
       <a href="tel:6044426711">Call 604-442-6711</a>
       <a href="mailto:info@apexheatpumps.ca">Email Us</a>
-    </nav>
+    </div>
   </header>
 
   <main>
