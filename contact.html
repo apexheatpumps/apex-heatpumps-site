@@ -1,78 +1,81 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Contact APEX Heat Pumps | Book a Free Consultation</title>
-<meta name="description" content="Contact APEX Heating & Cooling for heat pump installations, repairs, and maintenance across Metro Vancouver.">
-<link rel="canonical" href="https://apexheatpumps.ca/contact">
-<style>
-:root{--apx-orange:#ff6b35}
-body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#1f1f1f;background:#f9fafb}
-a{color:inherit;text-decoration:none}
-header.apx-header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;background:#fff;border-bottom:1px solid #ececec}
-header.apx-header nav a{margin:0 8px;text-decoration:underline}
-main{max-width:920px;margin:0 auto;padding:48px 16px;display:grid;gap:32px}
-section{background:#fff;border-radius:12px;box-shadow:0 8px 24px rgba(15,23,42,.08);padding:32px}
-section h1,section h2{margin-top:0}
-form{display:grid;gap:18px}
-input,textarea{width:100%;padding:12px;border:1px solid #d0d7de;border-radius:8px;font:inherit}
-textarea{min-height:120px}
-.sr-only{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);}
-button{background:var(--apx-orange);color:#fff;border:0;border-radius:999px;padding:12px 18px;font-weight:700;cursor:pointer}
-.info p{margin:.5rem 0;line-height:1.6}
-footer.apx-footer{margin-top:56px;padding:24px 16px;text-align:center;color:#666;font-size:.9rem}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact APEX Heat Pumps</title>
+  <meta name="description" content="Get in touch with APEX Heating & Cooling Ltd. for heat pump installations, service, and 24/7 support in Metro Vancouver.">
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+      color: #0f172a;
+      background: #f1f5f9;
+      line-height: 1.6;
+    }
+    header {
+      background: radial-gradient(circle at top right, #ff6b35, #0e0f11);
+      color: #fff;
+      padding: 36px 20px 48px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0 0 10px;
+      font-size: clamp(1.9rem, 3vw, 2.8rem);
+    }
+    header p {
+      margin: 0;
+      opacity: 0.85;
+    }
+    main {
+      max-width: 720px;
+      margin: -40px auto 0;
+      padding: 36px 22px 72px;
+      background: #fff;
+      border-radius: 32px 32px 0 0;
+      box-shadow: 0 24px 48px rgba(15, 23, 42, 0.16);
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 24px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #ff6b35;
+    }
+    .contact-info {
+      display: grid;
+      gap: 16px;
+    }
+    .contact-info a {
+      color: #0e7490;
+      font-weight: 600;
+    }
+    footer {
+      text-align: center;
+      padding: 32px 16px 48px;
+      color: #475569;
+    }
+  </style>
 </head>
 <body>
-<header class="apx-header">
-  <a href="/" class="logo" aria-label="APEX Heat Pumps home">APEX Heat Pumps</a>
-  <nav aria-label="Primary navigation">
-    <a href="/">Home</a>
-    <a href="/services">Services</a>
-    <a href="/rebates">Rebates</a>
-    <a href="/contact" aria-current="page">Contact</a>
-  </nav>
-</header>
-<main>
-  <section class="info">
-    <p class="breadcrumbs"><a href="/">Home</a> › Contact</p>
-    <h1>Contact APEX Heating & Cooling</h1>
-    <p>Call us anytime or send a message using the form. We respond to urgent requests within minutes and can typically schedule site visits within 24 hours.</p>
-    <p><strong>Phone:</strong> <a href="tel:6044426711">604-442-6711</a><br>
-       <strong>Email:</strong> <a href="mailto:info@apexheatpumps.ca">info@apexheatpumps.ca</a><br>
-       <strong>Service area:</strong> Vancouver, Burnaby, Surrey, Richmond, Langley, North Vancouver, New Westminster</p>
-    <p>Office: 902-200 Nelson's Crescent, New Westminster, BC</p>
-  </section>
-  <section>
-    <h2>Send us a message</h2>
-    <form action="https://api.web3forms.com/submit" method="post">
-      <input type="hidden" name="access_key" value="a4c3f5af-0f1b-4ca7-9dfd-90c5a7931022">
-      <input type="hidden" name="from_name" value="APEX Heat Pumps Website">
-      <input type="hidden" name="subject" value="New contact form inquiry">
-      <label>
-        <span class="sr-only">Your name</span>
-        <input type="text" name="name" placeholder="Your Name" required>
-      </label>
-      <label>
-        <span class="sr-only">Phone</span>
-        <input type="tel" name="phone" placeholder="Phone Number" inputmode="tel" pattern="[0-9\s\-()+]+">
-      </label>
-      <label>
-        <span class="sr-only">Email</span>
-        <input type="email" name="email" placeholder="Email" required>
-      </label>
-      <label>
-        <span class="sr-only">How can we help?</span>
-        <textarea name="message" placeholder="Tell us about your project" required></textarea>
-      </label>
-      <input type="text" name="website" tabindex="-1" autocomplete="off" class="sr-only">
-      <button type="submit">Send message</button>
-    </form>
-  </section>
-</main>
-<footer class="apx-footer">
-  <p>© APEX Heating & Cooling Ltd. | 604-442-6711 | info@apexheatpumps.ca</p>
-</footer>
+  <header>
+    <h1>APEX Heat Pumps</h1>
+    <p>Licensed HVAC technicians on call for Metro Vancouver homes and businesses.</p>
+  </header>
+  <main>
+    <a class="back-link" href="/">← Back to Home</a>
+    <h2>Contact Our Team</h2>
+    <p>We're ready to help with new installations, system upgrades, and emergency repairs. Reach us anytime and we'll respond within one business day.</p>
+    <div class="contact-info">
+      <p>Phone: <a href="tel:6044426711">604-442-6711</a></p>
+      <p>Email: <a href="mailto:info@apexheatpumps.ca">info@apexheatpumps.ca</a></p>
+      <p>Hours: 24/7 emergency support, standard appointments Monday to Saturday.</p>
+      <p>Service Area: Vancouver, Burnaby, Richmond, Surrey, Coquitlam, North Vancouver, and the Fraser Valley.</p>
+    </div>
+    <p>Prefer to meet in person? We can schedule an on-site assessment at your home to review equipment options, rebate eligibility, and financing.</p>
+  </main>
+  <footer>
+    © APEX Heating & Cooling Ltd. | 604-442-6711 | info@apexheatpumps.ca
+  </footer>
 </body>
 </html>
