@@ -91,6 +91,64 @@
       padding: 32px 16px 48px;
       color: #475569;
     }
+    form {
+      display: grid;
+      gap: 18px;
+      margin-top: 28px;
+      padding: 28px 24px;
+      background: #f8fafc;
+      border-radius: 24px;
+      border: 1px solid #e2e8f0;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 16px 36px rgba(15, 23, 42, 0.08);
+    }
+    label {
+      display: grid;
+      gap: 6px;
+      font-weight: 600;
+    }
+    input,
+    textarea {
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid #cbd5f5;
+      font: inherit;
+      background: #fff;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--apx-orange);
+      box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.25);
+    }
+    textarea { min-height: 140px; }
+    button {
+      justify-self: start;
+      background: var(--apx-orange);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 26px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    button:hover,
+    button:focus {
+      background: #e95d29;
+      transform: translateY(-1px);
+      outline: none;
+    }
+    .form-footer {
+      font-size: 0.9rem;
+      color: #475569;
+      line-height: 1.5;
+    }
+    .hp-field {
+      position: absolute;
+      left: -9999px;
+      opacity: 0;
+    }
   </style>
 </head>
 <body>
@@ -120,6 +178,30 @@
       <p>Service Area: Vancouver, Burnaby, Richmond, Surrey, Coquitlam, North Vancouver, and the Fraser Valley.</p>
     </div>
     <p>Prefer to meet in person? We can schedule an on-site assessment at your home to review equipment options, rebate eligibility, and financing.</p>
+    <form action="https://api.web3forms.com/submit" method="post">
+      <input type="hidden" name="access_key" value="a4c3f5af-0f1b-4ca7-9dfd-90c5a7931022">
+      <input type="hidden" name="from_name" value="APEX Heat Pumps Website">
+      <input type="hidden" name="subject" value="New contact request">
+      <label>
+        Name
+        <input type="text" name="name" autocomplete="name" required>
+      </label>
+      <label>
+        Email
+        <input type="email" name="email" autocomplete="email" required>
+      </label>
+      <label>
+        Phone number
+        <input type="tel" name="phone" inputmode="tel" pattern="[0-9\s\-()+]+" autocomplete="tel">
+      </label>
+      <label>
+        How can we help?
+        <textarea name="message" placeholder="Share your project details or service request" required></textarea>
+      </label>
+      <input type="text" name="website" class="hp-field" autocomplete="off" tabindex="-1">
+      <button type="submit">Send message</button>
+      <p class="form-footer">We respond within one business day. For urgent issues, call <a href="tel:6044426711">604-442-6711</a>.</p>
+    </form>
   </main>
   <footer>
     © APEX Heating & Cooling Ltd. | 604-442-6711 | info@apexheatpumps.ca

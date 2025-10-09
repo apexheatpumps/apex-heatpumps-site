@@ -8,24 +8,39 @@
 <meta name="description" content="APEX Heating & Cooling Ltd. — HPCN and CleanBC certified heat pump contractor serving Vancouver, Burnaby, Surrey, Richmond, Langley, and New Westminster. Installations, retrofits, and 24/7 repairs. Call 604-442-6711.">
 
 <style>
-:root{--apx-orange:#ff6b35;--apx-dark:#0e0f11}
+:root{--apx-orange:#ff6b35;--apx-dark:#0e0f11;--apx-green:#0b7;--apx-overlay:rgba(14,15,17,.78)}
 *{box-sizing:border-box}
-body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#222}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#222;background:#fff;scroll-behavior:smooth}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;height:auto;display:block}
-header.apx-header{display:flex;align-items:center;gap:18px;justify-content:space-between;padding:12px 16px;border-bottom:1px solid #eee;position:sticky;top:0;background:#fff;z-index:100}
+header.apx-header{display:flex;align-items:center;gap:18px;justify-content:space-between;padding:12px 16px;border-bottom:1px solid #eee;position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);z-index:120}
 .apx-header .logo{font-weight:800}
-.apx-nav a{margin:0 8px}
-.apx-call-desktop{background:var(--apx-orange);color:#fff;padding:10px 14px;border-radius:8px;font-weight:600;display:none}
+.apx-nav a{margin:0 8px;font-weight:600}
+.apx-call-desktop{background:var(--apx-orange);color:#fff;padding:10px 14px;border-radius:8px;font-weight:600;display:none;transition:transform .2s ease,box-shadow .2s ease}
+.apx-call-desktop:focus-visible,.apx-call-desktop:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(255,107,53,.28)}
 @media(min-width:900px){.apx-call-desktop{display:inline-block}}
+.announcement{display:flex;align-items:center;justify-content:center;gap:12px;padding:10px 14px;background:var(--apx-dark);color:#fff;font-weight:600;font-size:.95rem}
+.announcement svg{width:22px;height:22px;flex-shrink:0}
+.announcement time{font-variant-numeric:tabular-nums}
 .breadcrumbs{padding:8px 16px;font-size:.9rem;color:#666}
 .breadcrumbs a{text-decoration:underline}
 .hero{padding:48px 16px;text-align:center}
-.hero h1{margin:0 0 .25rem}
+.hero h1{margin:0 0 .25rem;font-size:clamp(2rem,4vw,2.8rem)}
 .hero h2{margin:.25rem 0 1rem;font-weight:600;color:#444}
 .hero .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.hero .btn{background:#0b7;color:#fff;padding:12px 16px;border-radius:8px;font-weight:700}
+.hero .btn{background:var(--apx-green);color:#fff;padding:12px 16px;border-radius:8px;font-weight:700;min-width:170px;display:inline-flex;align-items:center;justify-content:center;transition:transform .2s ease,box-shadow .2s ease}
+.hero .btn:focus-visible,.hero .btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(11,119,70,.24)}
 .hero .btn.emergency{background:var(--apx-orange)}
+.hero .urgency{margin-top:1.5rem;max-width:640px;margin-inline:auto;font-weight:600;color:#b61827;background:#ffe7e1;border-radius:12px;padding:14px 18px;box-shadow:0 12px 30px rgba(255,107,53,.18)}
+.hero .urgency strong{display:block;font-size:1.05rem}
+.hero .urgency span{display:inline-flex;align-items:center;gap:6px;margin-top:6px;font-size:.95rem}
+.trust-badges{padding:24px 16px;background:#f9fbff;text-align:center}
+.trust-badges h2{margin:0 0 12px;font-size:1.4rem}
+.trust-badges__grid{display:flex;flex-wrap:wrap;gap:18px;justify-content:center}
+.trust-badges__item{display:grid;place-items:center;border:1px solid rgba(14,15,17,.08);border-radius:14px;padding:14px 22px;background:#fff;min-width:160px;box-shadow:0 12px 24px rgba(14,15,17,.06);font-weight:700}
+.trust-badges__item span{font-size:.85rem;font-weight:600;color:#445}
+.trust-badges__stars{display:flex;align-items:center;gap:6px}
+.trust-badges__stars svg{width:18px;height:18px;color:#ffb400}
 .apx-call-fab{position:fixed;right:16px;bottom:18px;background:var(--apx-orange);color:#fff;padding:14px 18px;border-radius:999px;box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:1000;font-weight:700}
 @media(min-width:900px){.apx-call-fab{display:none}}
 .apx-contact{position:fixed;left:16px;bottom:18px;z-index:1000}
@@ -41,9 +56,41 @@ header.apx-header{display:flex;align-items:center;gap:18px;justify-content:space
 .portfolio{padding:24px 16px}
 .portfolio h2{margin:0 0 8px}
 .grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.grid img{aspect-ratio:4/3;object-fit:cover;border-radius:14px}
 figcaption{font-size:.9rem;color:#555;margin-top:6px}
+.guides{padding:48px 16px;background:#fafafa;border-top:1px solid #eee;border-bottom:1px solid #eee}
+.guides h2{margin-top:0;margin-bottom:16px;text-align:center}
+.guides p{max-width:760px;margin:0 auto 24px auto;color:#444;line-height:1.6}
+.guide-grid{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));max-width:1100px;margin:0 auto}
+.guide-card{background:#fff;border:1px solid #ddd;border-radius:16px;padding:24px;box-shadow:0 12px 30px rgba(14,15,17,.08)}
+.guide-card h3{margin-top:0;margin-bottom:12px;color:var(--apx-dark)}
+.guide-card ol{padding-left:20px;margin:0 0 16px 0;line-height:1.6}
+.guide-card pre{background:#0e0f11;color:#f8f8f2;padding:16px;border-radius:12px;overflow-x:auto;font-size:.9rem;line-height:1.5;margin:0}
+.guide-card code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace}
 .apx-footer{margin-top:48px;padding:24px 16px;background:#f8f8f8;border-top:1px solid #eee}
 .apx-footer nav a{margin-right:12px;text-decoration:underline}
+.exit-intent{position:fixed;inset:0;background:var(--apx-overlay);display:flex;align-items:center;justify-content:center;padding:20px;z-index:2000;opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s ease}
+.exit-intent[aria-hidden="false"]{opacity:1;visibility:visible}
+.exit-intent__dialog{max-width:420px;background:#fff;border-radius:16px;padding:24px;box-shadow:0 24px 60px rgba(14,15,17,.35);text-align:center;position:relative}
+.exit-intent__dialog h3{margin-top:0}
+.exit-intent__dialog button{margin-top:16px;width:100%;padding:12px 16px;border-radius:8px;border:0;font-weight:700;cursor:pointer}
+.exit-intent__dialog .primary{background:var(--apx-orange);color:#fff}
+.exit-intent__close{position:absolute;top:12px;right:12px;background:transparent;border:0;font-size:1.2rem;cursor:pointer}
+@media(max-width:680px){
+  .apx-header{padding:10px 12px}
+  .hero{padding:36px 16px}
+  .hero .cta{flex-direction:column}
+  .apx-contact{left:50%;transform:translateX(-50%);bottom:12px}
+  .apx-contact__form{width:min(92vw,420px)}
+  .apx-contact__progress{display:block}
+}
+@media(min-width:681px){
+  .apx-contact__controls{display:none!important}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 </style>
 </head>
 <body>
@@ -53,13 +100,20 @@ figcaption{font-size:.9rem;color:#555;margin-top:6px}
   <nav class="apx-nav" aria-label="Primary">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
-    <!-- Updated Services link to point to the correct file -->
     <a href="services.html">Services</a>
     <a href="rebates.html">Rebates</a>
     <a href="contact.html">Contact</a>
   </nav>
-  <a class="apx-call-desktop" href="tel:6044426711">Call for Free Quote: 604-442-6711</a>
+  <a class="apx-call-desktop" href="tel:6044426711" data-call-tracking="6044426711" data-base-href="tel:6044426711">Call for Free Quote: 604-442-6711</a>
 </header>
+
+<div class="announcement" role="status" aria-live="polite">
+  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M11 6.5a1 1 0 0 1 2 0V13a1 1 0 1 1-2 0V6.5Zm1 11a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z" fill="currentColor"/>
+    <path d="M11.05 2.936a2 2 0 0 1 1.9 0l7.5 3.888A2 2 0 0 1 21 8.613v6.774a2 2 0 0 1-1.05 1.789l-7.5 3.889a2 2 0 0 1-1.9 0l-7.5-3.889A2 2 0 0 1 3 15.387V8.613a2 2 0 0 1 1.05-1.789l7.5-3.888Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+  </svg>
+  <div>Limited CleanBC rebate funding remaining — reserve your spot before <time id="rebate-deadline"></time>.</div>
+</div>
 
 <nav class="breadcrumbs" aria-label="Breadcrumb">
   <a href="index.html">Home</a> <span aria-hidden="true">›</span> <span>Portfolio</span>
@@ -71,11 +125,50 @@ figcaption{font-size:.9rem;color:#555;margin-top:6px}
   <div class="cta">
     <a href="tel:6044426711" class="btn emergency">Emergency Repair</a>
     <a href="quote.html" class="btn">Free Quote</a>
+    <a href="tel:6044426711" class="btn emergency" data-call-tracking="6044426711" data-base-href="tel:6044426711">Emergency Repair</a>
+    <a href="/quote" class="btn" data-trackable-link data-base-href="/quote">Free Quote</a>
   </div>
   <p>Installations, gas furnace retrofits, and 24/7 repairs across Metro Vancouver.</p>
+  <div class="urgency" role="alert">
+    <strong>Only 18 CleanBC rebate spots left for this quarter.</strong>
+    <span aria-live="polite">Claim yours now and lock in up to $24,500 in savings.</span>
+  </div>
 </section>
 
-<a class="apx-call-fab" href="tel:6044426711" aria-label="Call now">📞 CALL NOW</a>
+<section class="trust-badges" aria-label="Trust signals">
+  <h2>Trusted by BC homeowners</h2>
+  <div class="trust-badges__grid">
+    <div class="trust-badges__item" role="img" aria-label="CleanBC Registered Contractor">
+      <svg width="60" height="60" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="32" cy="32" r="30" stroke="#0b7" stroke-width="4"/>
+        <path d="M20 34 28 42 44 26" stroke="#0b7" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      CleanBC Certified
+      <span>License #HPCN-5872</span>
+    </div>
+    <div class="trust-badges__item" aria-label="5 star Google rating">
+      <div class="trust-badges__stars">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 17.3 6.18 3.73-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.76L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 17.3 6.18 3.73-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.76L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 17.3 6.18 3.73-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.76L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 17.3 6.18 3.73-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.76L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 17.3 6.18 3.73-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.76L5.82 21z"/></svg>
+      </div>
+      4.9 ★ Google Reviews
+      <span>187 homeowner testimonials</span>
+    </div>
+    <div class="trust-badges__item" aria-label="Better Business Bureau A+ rating">
+      <svg width="56" height="56" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="12" y="12" width="40" height="40" rx="8" stroke="#004aad" stroke-width="4"/>
+        <path d="M24 36h16M24 44h16M24 28h16" stroke="#004aad" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+      BBB Accredited A+
+      <span>Zero unresolved complaints</span>
+    </div>
+  </div>
+</section>
+
+<a class="apx-call-fab" href="tel:6044426711" aria-label="Call now" data-call-tracking="6044426711" data-base-href="tel:6044426711">📞 CALL NOW</a>
 
 <aside class="apx-contact" id="contact">
   <button class="apx-contact__toggle" aria-controls="apx-contact-form" aria-expanded="false">Get Free Quote</button>
@@ -91,6 +184,8 @@ figcaption{font-size:.9rem;color:#555;margin-top:6px}
     </select>
     <textarea name="message" placeholder="Tell us about your project"></textarea>
     <input type="text" name="website" tabindex="-1" autocomplete="off" class="hp">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="APEX Heat Pump Quote Request">
     <button type="submit">Get Free Quote</button>
     <p class="apx-contact__status" role="status" aria-live="polite"></p>
   </form>
@@ -128,6 +223,58 @@ figcaption{font-size:.9rem;color:#555;margin-top:6px}
       <figcaption>High-rise bedroom • Vancouver</figcaption>
     </figure>
   </div>
+</section>
+
+<section class="guides" aria-labelledby="developer-guides">
+  <h2 id="developer-guides">Getting Started with Leading AI APIs</h2>
+  <p>Need to prototype an AI assistant for your project? Follow the quick-start checklists below to authenticate with OpenAI&rsquo;s ChatGPT API and Anthropic&rsquo;s Claude API using their official Python SDKs.</p>
+  <div class="guide-grid">
+    <article class="guide-card" aria-labelledby="openai-guide">
+      <h3 id="openai-guide">1. ChatGPT (OpenAI API)</h3>
+      <ol>
+        <li>Create an OpenAI account at <a href="https://platform.openai.com/signup" rel="noopener" target="_blank">platform.openai.com/signup</a>.</li>
+        <li>Generate an API key from the <strong>API Keys</strong> page in your dashboard.</li>
+        <li>Install the OpenAI Python SDK: <code>pip install openai</code>.</li>
+        <li>Use the sample below to send your first chat completion:</li>
+      </ol>
+      <pre><code>import openai
+
+openai.api_key = "your-api-key-here"
+
+response = openai.ChatCompletion.create(
+    model="gpt-3.5-turbo",
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Hello, who are you?"}
+    ]
+)
+
+print(response["choices"][0]["message"]["content"])</code></pre>
+    </article>
+    <article class="guide-card" aria-labelledby="anthropic-guide">
+      <h3 id="anthropic-guide">2. Claude (Anthropic API)</h3>
+      <ol>
+        <li>Request access at <a href="https://console.anthropic.com/" rel="noopener" target="_blank">console.anthropic.com</a>.</li>
+        <li>After approval, create an API key from your dashboard.</li>
+        <li>Install the Anthropic Python SDK: <code>pip install anthropic</code>.</li>
+        <li>Send a message with the following starter code:</li>
+      </ol>
+      <pre><code>import anthropic
+
+client = anthropic.Anthropic(api_key="your-api-key-here")
+
+response = client.messages.create(
+    model="claude-2.1",
+    max_tokens=128,
+    messages=[
+        {"role": "user", "content": "Hello, who are you?"}
+    ]
+)
+
+print(response.content)</code></pre>
+    </article>
+  </div>
+  <p style="text-align:center;margin-top:32px">Tip: Both platforms support HTTPS requests, streaming responses, and multiple models&mdash;replace <code>"your-api-key-here"</code> with your live secret key before deploying.</p>
 </section>
 
 <footer class="apx-footer">
@@ -196,6 +343,16 @@ if(contactToggle&&contactForm){
   });
 }
 </script>
+
+<div class="exit-intent" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="exit-intent__dialog">
+    <button class="exit-intent__close" type="button" aria-label="Close exit intent">×</button>
+    <h3>Still thinking it over?</h3>
+    <p>CleanBC funding is nearly exhausted. Reserve a site visit today and we’ll hold your rebate amount for 14 days.</p>
+    <button type="button" class="primary" data-trackable-link data-base-href="/quote?cta=exit-intent">Lock In My Rebate</button>
+    <button type="button" class="prev" onclick="this.closest('.exit-intent').setAttribute('aria-hidden','true')">Keep Browsing</button>
+  </div>
+</div>
 
 <script type="application/ld+json">
 {
