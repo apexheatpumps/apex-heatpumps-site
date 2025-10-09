@@ -30,7 +30,8 @@ header.apx-header{display:flex;align-items:center;gap:18px;justify-content:space
 @media(min-width:900px){.apx-call-fab{display:none}}
 .apx-contact{position:fixed;left:16px;bottom:18px;z-index:1000}
 .apx-contact__toggle{background:#0b7;color:#fff;border:0;padding:12px 14px;border-radius:10px;font-weight:700}
-.apx-contact__form{display:none;margin-top:8px;padding:12px;background:#fff;border:1px solid #ddd;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,.15);width:min(92vw,340px)}
+.apx-contact__form{margin-top:8px;padding:12px;background:#fff;border:1px solid #ddd;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,.15);width:min(92vw,340px)}
+.apx-contact__form[hidden]{display:none}
 .apx-contact__form input,.apx-contact__form select,.apx-contact__form textarea{width:100%;margin:.4rem 0;padding:.65rem;border:1px solid #ccc;border-radius:8px}
 .apx-contact__form button{width:100%;padding:.75rem;background:var(--apx-orange);color:#fff;border:0;border-radius:8px;font-weight:700}
 .apx-contact__form button[disabled]{opacity:.7}
@@ -48,12 +49,14 @@ figcaption{font-size:.9rem;color:#555;margin-top:6px}
 <body>
 
 <header class="apx-header">
-  <a href="/" class="logo" aria-label="APEX Heat Pumps home">APEX Heat Pumps</a>
+  <a href="index.html" class="logo" aria-label="APEX Heat Pumps home">APEX Heat Pumps</a>
   <nav class="apx-nav" aria-label="Primary">
-    <a href="/">Home</a>
-    <a href="/services">Services</a>
-    <a href="/rebates">Rebates</a>
-    <a href="/contact">Contact</a>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <!-- Updated Services link to point to the correct file -->
+    <a href="services.html">Services</a>
+    <a href="rebates.html">Rebates</a>
+    <a href="contact.html">Contact</a>
   </nav>
   <a class="apx-call-desktop" href="tel:6044426711">Call for Free Quote: 604-442-6711</a>
 </header>
@@ -74,7 +77,7 @@ figcaption{font-size:.9rem;color:#555;margin-top:6px}
 
 <a class="apx-call-fab" href="tel:6044426711" aria-label="Call now">📞 CALL NOW</a>
 
-<aside class="apx-contact">
+<aside class="apx-contact" id="contact">
   <button class="apx-contact__toggle" aria-controls="apx-contact-form" aria-expanded="false">Get Free Quote</button>
   <form id="apx-contact-form" class="apx-contact__form" action="https://api.web3forms.com/submit" method="post">
     <input type="text" name="name" placeholder="Your Name" required>
@@ -97,45 +100,31 @@ figcaption{font-size:.9rem;color:#555;margin-top:6px}
   <h2>Heat Pump Installations Across Metro Vancouver</h2>
   <div class="grid">
     <figure>
-      <img loading="lazy" width="800" height="1067"
-           src="/images/heat-pump-line-set-cover-vancouver-balcony-install.jpg"
-           alt="Heat pump line set cover and vent installation on high-rise condo balcony in Vancouver, BC">
+      <img src="https://placehold.co/600x400/667eea/white?text=Heat+Pump" alt="Heat Pump">
       <figcaption>High-rise condo line set sealing • Vancouver, BC</figcaption>
     </figure>
     <figure>
-      <img loading="lazy" width="1024" height="683"
-           src="/images/ductless-heat-pump-installation-downtown-vancouver-condo.jpg"
-           alt="New ductless mini-split heat pump installed in a downtown Vancouver condo overlooking BC Place">
+      <img src="https://placehold.co/600x400/667eea/white?text=Heat+Pump" alt="Heat Pump">
       <figcaption>Ductless install • Downtown Vancouver</figcaption>
     </figure>
     <figure>
-      <img loading="lazy" width="768" height="1024"
-           src="/images/airlux-mini-split-heat-pump-installation-surrey-living-room.jpg"
-           alt="Airlux ductless mini-split installed in Surrey living room with line set cover for clean finish">
+      <img src="https://placehold.co/600x400/667eea/white?text=Heat+Pump" alt="Heat Pump">
       <figcaption>Airlux mini-split • Surrey living room</figcaption>
     </figure>
     <figure>
-      <img loading="lazy" width="1024" height="683"
-           src="/images/airlux-ductless-heat-pump-installation-burnaby-condo.jpg"
-           alt="Ductless Airlux heat pump installation in Burnaby condo with protective plastic during setup">
+      <img src="https://placehold.co/600x400/667eea/white?text=Heat+Pump" alt="Heat Pump">
       <figcaption>Condo retrofit • Burnaby</figcaption>
     </figure>
     <figure>
-      <img loading="lazy" width="1024" height="768"
-           src="/images/heat-pump-bedroom-installation-vancouver-bc-place-view.jpg"
-           alt="Ductless heat pump indoor unit installed in bedroom with city view of BC Place Stadium in Vancouver">
+      <img src="https://placehold.co/600x400/667eea/white?text=Heat+Pump" alt="Heat Pump">
       <figcaption>Bedroom unit • Vancouver</figcaption>
     </figure>
     <figure>
-      <img loading="lazy" width="768" height="1024"
-           src="/images/airlux-heat-pump-outdoor-unit-installation-surrey-home.jpg"
-           alt="Airlux outdoor heat pump condenser unit installed outside Surrey home">
+      <img src="https://placehold.co/600x400/667eea/white?text=Heat+Pump" alt="Heat Pump">
       <figcaption>Outdoor condenser • Surrey</figcaption>
     </figure>
     <figure>
-      <img loading="lazy" width="1024" height="683"
-           src="/images/ductless-heat-pump-bedroom-installation-vancouver-highrise.jpg"
-           alt="Ductless heat pump installed in Vancouver high-rise bedroom with teal accent wall">
+      <img src="https://placehold.co/600x400/667eea/white?text=Heat+Pump" alt="Heat Pump">
       <figcaption>High-rise bedroom • Vancouver</figcaption>
     </figure>
   </div>
