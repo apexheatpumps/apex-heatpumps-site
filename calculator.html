@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Heat Pump Savings Calculator | APEX</title>
+  <link rel="stylesheet" href="/styles/calculator.css">
+</head>
+<body>
+  <main>
+    <h1>Heat Pump Savings Calculator</h1>
+    <form id="calculator-form">
+      <label>
+        Name
+        <input type="text" name="name" required>
+      </label>
+      <label>
+        Email
+        <input type="email" name="email" required>
+      </label>
+      <label>
+        Phone
+        <input type="tel" name="phone" required>
+      </label>
+      <label>
+        Current Heating System
+        <select name="system" required>
+          <option value="Gas Furnace">Gas Furnace</option>
+          <option value="Baseboard">Baseboard</option>
+          <option value="Oil Furnace">Oil Furnace</option>
+        </select>
+      </label>
+      <label>
+        Notes
+        <textarea name="message" rows="4" placeholder="Tell us about your project"></textarea>
+      </label>
+      <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off">
+      <button type="submit">Get My Savings Report</button>
+    </form>
+    <p class="form-status" role="status" aria-live="polite"></p>
+  </main>
+
+  <script>
+  const form = document.getElementById('calculator-form');
+  const status = document.querySelector('.form-status');
+
+  if (form) {
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      status.textContent = 'Submitting...';
+      status.classList.remove('error');
+
+      const formData = new FormData(form);
+      formData.append('access_key', 'bfc609cd-6bf1-4d82-9c46-b739906dae10');
+      formData.append('subject', 'Heat Pump Savings Calculator Submission');
+      formData.append('from_name', 'APEX Heat Pumps Calculator');
+
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
+        const data = await response.json();
+
+        if (response.ok) {
+          status.textContent = 'Thanks! We will be in touch shortly.';
+          form.reset();
+        } else {
+          throw new Error(data.message || 'Submission failed');
+        }
+      } catch (error) {
+        status.textContent = 'Something went wrong. Please try again later.';
+        status.classList.add('error');
+      }
+    });
+  }
+  </script>
+</body>
+</html>
