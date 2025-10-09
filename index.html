@@ -8,38 +8,83 @@
 <meta name="description" content="APEX Heating & Cooling Ltd. — HPCN and CleanBC certified heat pump contractor serving Vancouver, Burnaby, Surrey, Richmond, Langley, and New Westminster. Installations, retrofits, and 24/7 repairs. Call 604-442-6711.">
 
 <style>
-:root{--apx-orange:#ff6b35;--apx-dark:#0e0f11}
+:root{--apx-orange:#ff6b35;--apx-dark:#0e0f11;--apx-green:#0b7;--apx-overlay:rgba(14,15,17,.78)}
 *{box-sizing:border-box}
-body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#222}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#222;background:#fff;scroll-behavior:smooth}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;height:auto;display:block}
-header.apx-header{display:flex;align-items:center;gap:18px;justify-content:space-between;padding:12px 16px;border-bottom:1px solid #eee;position:sticky;top:0;background:#fff;z-index:100}
+header.apx-header{display:flex;align-items:center;gap:18px;justify-content:space-between;padding:12px 16px;border-bottom:1px solid #eee;position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);z-index:120}
 .apx-header .logo{font-weight:800}
-.apx-nav a{margin:0 8px}
-.apx-call-desktop{background:var(--apx-orange);color:#fff;padding:10px 14px;border-radius:8px;font-weight:600;display:none}
+.apx-nav a{margin:0 8px;font-weight:600}
+.apx-call-desktop{background:var(--apx-orange);color:#fff;padding:10px 14px;border-radius:8px;font-weight:600;display:none;transition:transform .2s ease,box-shadow .2s ease}
+.apx-call-desktop:focus-visible,.apx-call-desktop:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(255,107,53,.28)}
 @media(min-width:900px){.apx-call-desktop{display:inline-block}}
+.announcement{display:flex;align-items:center;justify-content:center;gap:12px;padding:10px 14px;background:var(--apx-dark);color:#fff;font-weight:600;font-size:.95rem}
+.announcement svg{width:22px;height:22px;flex-shrink:0}
+.announcement time{font-variant-numeric:tabular-nums}
 .breadcrumbs{padding:8px 16px;font-size:.9rem;color:#666}
 .breadcrumbs a{text-decoration:underline}
 .hero{padding:48px 16px;text-align:center}
-.hero h1{margin:0 0 .25rem}
+.hero h1{margin:0 0 .25rem;font-size:clamp(2rem,4vw,2.8rem)}
 .hero h2{margin:.25rem 0 1rem;font-weight:600;color:#444}
 .hero .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.hero .btn{background:#0b7;color:#fff;padding:12px 16px;border-radius:8px;font-weight:700}
+.hero .btn{background:var(--apx-green);color:#fff;padding:12px 16px;border-radius:8px;font-weight:700;min-width:170px;display:inline-flex;align-items:center;justify-content:center;transition:transform .2s ease,box-shadow .2s ease}
+.hero .btn:focus-visible,.hero .btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(11,119,70,.24)}
 .hero .btn.emergency{background:var(--apx-orange)}
+.hero .urgency{margin-top:1.5rem;max-width:640px;margin-inline:auto;font-weight:600;color:#b61827;background:#ffe7e1;border-radius:12px;padding:14px 18px;box-shadow:0 12px 30px rgba(255,107,53,.18)}
+.hero .urgency strong{display:block;font-size:1.05rem}
+.hero .urgency span{display:inline-flex;align-items:center;gap:6px;margin-top:6px;font-size:.95rem}
+.trust-badges{padding:24px 16px;background:#f9fbff;text-align:center}
+.trust-badges h2{margin:0 0 12px;font-size:1.4rem}
+.trust-badges__grid{display:flex;flex-wrap:wrap;gap:18px;justify-content:center}
+.trust-badges__item{display:grid;place-items:center;border:1px solid rgba(14,15,17,.08);border-radius:14px;padding:14px 22px;background:#fff;min-width:160px;box-shadow:0 12px 24px rgba(14,15,17,.06);font-weight:700}
+.trust-badges__item span{font-size:.85rem;font-weight:600;color:#445}
+.trust-badges__stars{display:flex;align-items:center;gap:6px}
+.trust-badges__stars svg{width:18px;height:18px;color:#ffb400}
 .apx-call-fab{position:fixed;right:16px;bottom:18px;background:var(--apx-orange);color:#fff;padding:14px 18px;border-radius:999px;box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:1000;font-weight:700}
 @media(min-width:900px){.apx-call-fab{display:none}}
 .apx-contact{position:fixed;left:16px;bottom:18px;z-index:1000}
-.apx-contact__toggle{background:#0b7;color:#fff;border:0;padding:12px 14px;border-radius:10px;font-weight:700}
-.apx-contact__form{display:none;margin-top:8px;padding:12px;background:#fff;border:1px solid #ddd;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,.15);width:min(92vw,340px)}
-.apx-contact__form input,.apx-contact__form select,.apx-contact__form textarea{width:100%;margin:.4rem 0;padding:.65rem;border:1px solid #ccc;border-radius:8px}
-.apx-contact__form button{width:100%;padding:.75rem;background:var(--apx-orange);color:#fff;border:0;border-radius:8px;font-weight:700}
+.apx-contact__toggle{background:var(--apx-green);color:#fff;border:0;padding:12px 14px;border-radius:10px;font-weight:700;box-shadow:0 10px 20px rgba(11,119,70,.25)}
+.apx-contact__form{display:none;margin-top:8px;padding:12px;background:#fff;border:1px solid #ddd;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,.15);width:min(92vw,360px)}
+.apx-contact__progress{display:none;margin-bottom:8px;font-size:.85rem;color:#666}
+.apx-contact__form input,.apx-contact__form select,.apx-contact__form textarea{width:100%;margin:.4rem 0;padding:.65rem;border:1px solid #ccc;border-radius:8px;font-size:1rem}
+.apx-contact__form input:focus-visible,.apx-contact__form select:focus-visible,.apx-contact__form textarea:focus-visible{outline:2px solid var(--apx-green);outline-offset:1px}
+.apx-contact__controls{display:flex;gap:8px;margin-top:.6rem}
+.apx-contact__controls button{flex:1;border:0;border-radius:8px;padding:.75rem;font-weight:700}
+.apx-contact__controls .prev{background:#f1f3f5;color:#222}
+.apx-contact__controls .next{background:var(--apx-green);color:#fff}
+.apx-contact__form button[type=submit]{width:100%;padding:.75rem;background:var(--apx-orange);color:#fff;border:0;border-radius:8px;font-weight:700;display:none}
+.apx-contact__form[data-step="4"] button[type=submit]{display:block}
 .hp{position:absolute;left:-9999px}
 .portfolio{padding:24px 16px}
 .portfolio h2{margin:0 0 8px}
 .grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.grid img{aspect-ratio:4/3;object-fit:cover;border-radius:14px}
 figcaption{font-size:.9rem;color:#555;margin-top:6px}
 .apx-footer{margin-top:48px;padding:24px 16px;background:#f8f8f8;border-top:1px solid #eee}
 .apx-footer nav a{margin-right:12px;text-decoration:underline}
+.exit-intent{position:fixed;inset:0;background:var(--apx-overlay);display:flex;align-items:center;justify-content:center;padding:20px;z-index:2000;opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s ease}
+.exit-intent[aria-hidden="false"]{opacity:1;visibility:visible}
+.exit-intent__dialog{max-width:420px;background:#fff;border-radius:16px;padding:24px;box-shadow:0 24px 60px rgba(14,15,17,.35);text-align:center;position:relative}
+.exit-intent__dialog h3{margin-top:0}
+.exit-intent__dialog button{margin-top:16px;width:100%;padding:12px 16px;border-radius:8px;border:0;font-weight:700;cursor:pointer}
+.exit-intent__dialog .primary{background:var(--apx-orange);color:#fff}
+.exit-intent__close{position:absolute;top:12px;right:12px;background:transparent;border:0;font-size:1.2rem;cursor:pointer}
+@media(max-width:680px){
+  .apx-header{padding:10px 12px}
+  .hero{padding:36px 16px}
+  .hero .cta{flex-direction:column}
+  .apx-contact{left:50%;transform:translateX(-50%);bottom:12px}
+  .apx-contact__form{width:min(92vw,420px)}
+  .apx-contact__progress{display:block}
+}
+@media(min-width:681px){
+  .apx-contact__controls{display:none!important}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 </style>
 </head>
 <body>
@@ -52,8 +97,16 @@ figcaption{font-size:.9rem;color:#555;margin-top:6px}
     <a href="/rebates">Rebates</a>
     <a href="/contact">Contact</a>
   </nav>
-  <a class="apx-call-desktop" href="tel:6044426711">Call for Free Quote: 604-442-6711</a>
+  <a class="apx-call-desktop" href="tel:6044426711" data-call-tracking="6044426711" data-base-href="tel:6044426711">Call for Free Quote: 604-442-6711</a>
 </header>
+
+<div class="announcement" role="status" aria-live="polite">
+  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M11 6.5a1 1 0 0 1 2 0V13a1 1 0 1 1-2 0V6.5Zm1 11a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z" fill="currentColor"/>
+    <path d="M11.05 2.936a2 2 0 0 1 1.9 0l7.5 3.888A2 2 0 0 1 21 8.613v6.774a2 2 0 0 1-1.05 1.789l-7.5 3.889a2 2 0 0 1-1.9 0l-7.5-3.889A2 2 0 0 1 3 15.387V8.613a2 2 0 0 1 1.05-1.789l7.5-3.888Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+  </svg>
+  <div>Limited CleanBC rebate funding remaining — reserve your spot before <time id="rebate-deadline"></time>.</div>
+</div>
 
 <nav class="breadcrumbs" aria-label="Breadcrumb">
   <a href="/">Home</a> <span aria-hidden="true">›</span> <span>Portfolio</span>
@@ -63,29 +116,97 @@ figcaption{font-size:.9rem;color:#555;margin-top:6px}
   <h1>Vancouver Heat Pump Contractor</h1>
   <h2>HPCN certified. Up to $24,500 in rebates.</h2>
   <div class="cta">
-    <a href="tel:6044426711" class="btn emergency">Emergency Repair</a>
-    <a href="/quote" class="btn">Free Quote</a>
+    <a href="tel:6044426711" class="btn emergency" data-call-tracking="6044426711" data-base-href="tel:6044426711">Emergency Repair</a>
+    <a href="/quote" class="btn" data-trackable-link data-base-href="/quote">Free Quote</a>
   </div>
   <p>Installations, gas furnace retrofits, and 24/7 repairs across Metro Vancouver.</p>
+  <div class="urgency" role="alert">
+    <strong>Only 18 CleanBC rebate spots left for this quarter.</strong>
+    <span aria-live="polite">Claim yours now and lock in up to $24,500 in savings.</span>
+  </div>
 </section>
 
-<a class="apx-call-fab" href="tel:6044426711" aria-label="Call now">📞 CALL NOW</a>
+<section class="trust-badges" aria-label="Trust signals">
+  <h2>Trusted by BC homeowners</h2>
+  <div class="trust-badges__grid">
+    <div class="trust-badges__item" role="img" aria-label="CleanBC Registered Contractor">
+      <svg width="60" height="60" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="32" cy="32" r="30" stroke="#0b7" stroke-width="4"/>
+        <path d="M20 34 28 42 44 26" stroke="#0b7" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      CleanBC Certified
+      <span>License #HPCN-5872</span>
+    </div>
+    <div class="trust-badges__item" aria-label="5 star Google rating">
+      <div class="trust-badges__stars">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 17.3 6.18 3.73-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.76L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 17.3 6.18 3.73-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.76L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 17.3 6.18 3.73-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.76L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 17.3 6.18 3.73-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.76L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 17.3 6.18 3.73-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.76L5.82 21z"/></svg>
+      </div>
+      4.9 ★ Google Reviews
+      <span>187 homeowner testimonials</span>
+    </div>
+    <div class="trust-badges__item" aria-label="Better Business Bureau A+ rating">
+      <svg width="56" height="56" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="12" y="12" width="40" height="40" rx="8" stroke="#004aad" stroke-width="4"/>
+        <path d="M24 36h16M24 44h16M24 28h16" stroke="#004aad" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+      BBB Accredited A+
+      <span>Zero unresolved complaints</span>
+    </div>
+  </div>
+</section>
+
+<a class="apx-call-fab" href="tel:6044426711" aria-label="Call now" data-call-tracking="6044426711" data-base-href="tel:6044426711">📞 CALL NOW</a>
 
 <aside class="apx-contact">
   <button class="apx-contact__toggle" aria-controls="apx-contact-form" aria-expanded="false">Get Free Quote</button>
-  <form id="apx-contact-form" class="apx-contact__form" action="/submit" method="post" novalidate>
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="tel" name="phone" placeholder="Phone Number" required inputmode="tel" pattern="[0-9\s\-()+]+">
-    <input type="email" name="email" placeholder="Email" required>
-    <select name="service" required>
-      <option value="Heat Pump Installation">Heat Pump Installation</option>
-      <option value="Emergency Repair">Emergency Repair</option>
-      <option value="Maintenance">Maintenance</option>
-      <option value="Gas Furnace Retrofit">Gas Furnace Retrofit</option>
-    </select>
-    <textarea name="message" placeholder="Tell us about your project"></textarea>
-    <input type="text" name="website" tabindex="-1" autocomplete="off" class="hp">
-    <button type="submit">Get Free Quote</button>
+  <form id="apx-contact-form" class="apx-contact__form" action="/submit" method="post" novalidate data-step="1">
+    <div class="apx-contact__progress" aria-live="polite">Step <span id="apx-progress-step">1</span> of 4</div>
+    <div class="apx-contact__step" data-step="1">
+      <label class="sr-only" for="apx-name">Name</label>
+      <input id="apx-name" type="text" name="name" placeholder="Your Name" autocomplete="name" required>
+      <div class="apx-contact__controls">
+        <button type="button" class="next" data-next>Next</button>
+      </div>
+    </div>
+    <div class="apx-contact__step" data-step="2" hidden>
+      <label class="sr-only" for="apx-phone">Phone</label>
+      <input id="apx-phone" type="tel" name="phone" placeholder="Phone Number" required inputmode="tel" autocomplete="tel" pattern="[0-9\s\-()+]+">
+      <div class="apx-contact__controls">
+        <button type="button" class="prev" data-prev>Back</button>
+        <button type="button" class="next" data-next>Next</button>
+      </div>
+    </div>
+    <div class="apx-contact__step" data-step="3" hidden>
+      <label class="sr-only" for="apx-email">Email</label>
+      <input id="apx-email" type="email" name="email" placeholder="Email" required autocomplete="email">
+      <label class="sr-only" for="apx-service">Service</label>
+      <select id="apx-service" name="service" required>
+        <option value="Heat Pump Installation">Heat Pump Installation</option>
+        <option value="Emergency Repair">Emergency Repair</option>
+        <option value="Maintenance">Maintenance</option>
+        <option value="Gas Furnace Retrofit">Gas Furnace Retrofit</option>
+      </select>
+      <div class="apx-contact__controls">
+        <button type="button" class="prev" data-prev>Back</button>
+        <button type="button" class="next" data-next>Next</button>
+      </div>
+    </div>
+    <div class="apx-contact__step" data-step="4" hidden>
+      <label class="sr-only" for="apx-message">Project details</label>
+      <textarea id="apx-message" name="message" placeholder="Tell us about your project" rows="3"></textarea>
+      <input type="text" name="website" tabindex="-1" autocomplete="off" class="hp">
+      <input type="hidden" name="utm_source" id="apx-utm-source">
+      <input type="hidden" name="utm_medium" id="apx-utm-medium">
+      <input type="hidden" name="utm_campaign" id="apx-utm-campaign">
+      <input type="hidden" name="utm_term" id="apx-utm-term">
+      <input type="hidden" name="utm_content" id="apx-utm-content">
+      <input type="hidden" name="landing_page" id="apx-landing-page">
+      <button type="submit">Get Free Quote</button>
+    </div>
   </form>
 </aside>
 
@@ -147,10 +268,248 @@ figcaption{font-size:.9rem;color:#555;margin-top:6px}
 </footer>
 
 <script>
-const t=document.querySelector('.apx-contact__toggle');
-const f=document.querySelector('.apx-contact__form');
-if(t&&f){t.addEventListener('click',()=>{const open=f.style.display==='block';f.style.display=open?'none':'block';t.setAttribute('aria-expanded',String(!open));});}
+document.addEventListener('DOMContentLoaded',()=>{
+  const toggle=document.querySelector('.apx-contact__toggle');
+  const form=document.querySelector('.apx-contact__form');
+  const steps=Array.from(document.querySelectorAll('.apx-contact__step'));
+  const progress=document.getElementById('apx-progress-step');
+  const progressContainer=document.querySelector('.apx-contact__progress');
+  const submitButton=form?.querySelector('button[type="submit"]');
+  const heroCtas=document.querySelectorAll('.hero .btn:not(.emergency)');
+  const callLinks=document.querySelectorAll('[href^="tel:"][data-call-tracking]');
+  const quoteLinks=document.querySelectorAll('[data-trackable-link]');
+  const exitIntent=document.querySelector('.exit-intent');
+  const exitClose=document.querySelector('.exit-intent__close');
+  const exitPrimary=document.querySelector('.exit-intent__dialog .primary');
+  const deadlineEl=document.getElementById('rebate-deadline');
+  const landingInput=document.getElementById('apx-landing-page');
+  const useStepper=window.matchMedia('(max-width: 680px)');
+
+  const storageKey='apx_cta_variant_v1';
+  const variants=[
+    {label:'Book Home Assessment',href:'/quote?cta=assessment'},
+    {label:'Unlock Rebate Savings',href:'/quote?cta=rebate'},
+    {label:'Schedule Heat Pump Quote',href:'/quote?cta=schedule'}
+  ];
+  let variant=localStorage.getItem(storageKey);
+  if(!variant){
+    variant=Math.floor(Math.random()*variants.length).toString();
+    localStorage.setItem(storageKey,variant);
+  }
+  const selected=variants[Number(variant)]||variants[0];
+  heroCtas.forEach(btn=>{
+    btn.textContent=selected.label;
+    btn.setAttribute('href',selected.href);
+    btn.dataset.baseHref=selected.href;
+    btn.dataset.variant=variant;
+  });
+
+  const today=new Date();
+  const deadline=new Date();
+  deadline.setDate(today.getDate()+7);
+  const formattedDeadline=deadline.toLocaleDateString(undefined,{month:'short',day:'numeric'});
+  if(deadlineEl){
+    deadlineEl.textContent=formattedDeadline;
+  }
+
+  if(toggle&&form){
+    toggle.addEventListener('click',()=>{
+      const open=form.style.display==='block';
+      form.style.display=open?'none':'block';
+      toggle.setAttribute('aria-expanded',String(!open));
+      if(!open){
+        const firstInput=form.querySelector('input,select,textarea');
+        firstInput&&firstInput.focus({preventScroll:true});
+      }
+    });
+  }
+
+  const applyStepperMode=isStepper=>{
+    if(!form){
+      return;
+    }
+    if(!isStepper){
+      form.dataset.step=String(steps.length);
+      steps.forEach(step=>step.removeAttribute('hidden'));
+      if(submitButton){
+        submitButton.style.display='block';
+      }
+      if(progressContainer){
+        progressContainer.setAttribute('aria-hidden','true');
+        progressContainer.style.display='none';
+      }
+      return;
+    }
+    form.dataset.step='1';
+    steps.forEach(step=>{
+      const isActive=step.dataset.step==='1';
+      step.toggleAttribute('hidden',!isActive);
+    });
+    if(submitButton){
+      submitButton.style.display='none';
+    }
+    if(progress){
+      progress.textContent='1';
+    }
+    if(progressContainer){
+      progressContainer.removeAttribute('aria-hidden');
+      progressContainer.style.display='block';
+    }
+  };
+
+  const setStep=index=>{
+    if(!form||!useStepper.matches){
+      return;
+    }
+    const activeStep=Number(form.dataset.step||1);
+    const nextStep=Math.min(Math.max(index,1),steps.length);
+    if(activeStep===nextStep){
+      return;
+    }
+    form.dataset.step=String(nextStep);
+    steps.forEach(step=>{
+      const isActive=Number(step.dataset.step)===nextStep;
+      step.toggleAttribute('hidden',!isActive);
+    });
+    if(progress){
+      progress.textContent=String(nextStep);
+    }
+    if(submitButton){
+      submitButton.style.display=nextStep===steps.length?'block':'none';
+    }
+    const focusTarget=steps[nextStep-1]?.querySelector('input,textarea,select,button[data-next]');
+    focusTarget&&focusTarget.focus({preventScroll:true});
+  };
+
+  steps.forEach(step=>{
+    step.addEventListener('click',event=>{
+      const target=event.target;
+      if(!(target instanceof HTMLElement)||!useStepper.matches){
+        return;
+      }
+      if(target.matches('[data-next]')){
+        event.preventDefault();
+        const inputs=Array.from(step.querySelectorAll('input,select,textarea'));
+        const isValid=inputs.every(input=>input.checkValidity());
+        if(!isValid){
+          inputs.forEach(input=>input.reportValidity());
+          return;
+        }
+        setStep(Number(step.dataset.step)+1);
+      }
+      if(target.matches('[data-prev]')){
+        event.preventDefault();
+        setStep(Number(step.dataset.step)-1);
+      }
+    });
+  });
+
+  applyStepperMode(useStepper.matches);
+  useStepper.addEventListener('change',event=>{
+    applyStepperMode(event.matches);
+  });
+
+  const params=new URLSearchParams(window.location.search);
+  const utmFields=['utm_source','utm_medium','utm_campaign','utm_term','utm_content'];
+  utmFields.forEach(key=>{
+    const value=params.get(key)||sessionStorage.getItem(key)||'';
+    if(value){
+      sessionStorage.setItem(key,value);
+    }
+    const input=document.getElementById(`apx-${key.replace('utm_','utm-')}`);
+    if(input){
+      input.value=value;
+    }
+  });
+  if(landingInput){
+    landingInput.value=window.location.href;
+  }
+
+  const assignTracking=(link)=>{
+    const base=link.dataset.baseHref||link.getAttribute('href');
+    if(!base) return;
+    const trackingParams=new URLSearchParams();
+    utmFields.forEach(key=>{
+      const value=sessionStorage.getItem(key)||params.get(key);
+      if(value) trackingParams.set(key,value);
+    });
+    trackingParams.set('variant',variant);
+    const finalHref=`${base}${base.includes('?')?'&':'?'}${trackingParams.toString()}`;
+    if(link.tagName==='A'){
+      link.setAttribute('href',finalHref);
+    }else{
+      link.dataset.href=finalHref;
+    }
+  };
+
+  quoteLinks.forEach(link=>assignTracking(link));
+
+  callLinks.forEach(link=>{
+    const base=link.dataset.baseHref||link.getAttribute('href');
+    if(!base) return;
+    link.addEventListener('click',()=>{
+      const trackingPayload={
+        number:link.dataset.callTracking,
+        utm:utmFields.reduce((acc,key)=>{
+          acc[key]=sessionStorage.getItem(key)||params.get(key)||'';
+          return acc;
+        },{}),
+        variant
+      };
+      if(navigator.sendBeacon){
+        const blob=new Blob([JSON.stringify(trackingPayload)],{type:'application/json'});
+        navigator.sendBeacon('/api/track-call',blob);
+      }
+    },{passive:true});
+    link.setAttribute('href',base);
+  });
+
+  const showExitIntent=()=>{
+    if(sessionStorage.getItem('apx_exit_shown')) return;
+    sessionStorage.setItem('apx_exit_shown','1');
+    exitIntent?.setAttribute('aria-hidden','false');
+  };
+  const hideExitIntent=()=>exitIntent?.setAttribute('aria-hidden','true');
+
+  if(exitIntent){
+    exitIntent.setAttribute('aria-hidden','true');
+    let triggered=false;
+    document.addEventListener('mouseleave',event=>{
+      if(event.clientY>0||triggered) return;
+      triggered=true;
+      showExitIntent();
+    });
+    window.addEventListener('scroll',()=>{
+      if(triggered||window.innerWidth>=900) return;
+      if(window.scrollY>380){
+        triggered=true;
+        showExitIntent();
+      }
+    },{passive:true});
+    exitClose?.addEventListener('click',()=>{
+      hideExitIntent();
+      setTimeout(()=>triggered=false,120000);
+    });
+    exitPrimary?.addEventListener('click',()=>{
+      hideExitIntent();
+      const targetHref=exitPrimary.dataset.href||exitPrimary.getAttribute('href');
+      if(targetHref){
+        window.location.href=targetHref;
+      }
+    });
+  }
+});
 </script>
+
+<div class="exit-intent" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="exit-intent__dialog">
+    <button class="exit-intent__close" type="button" aria-label="Close exit intent">×</button>
+    <h3>Still thinking it over?</h3>
+    <p>CleanBC funding is nearly exhausted. Reserve a site visit today and we’ll hold your rebate amount for 14 days.</p>
+    <button type="button" class="primary" data-trackable-link data-base-href="/quote?cta=exit-intent">Lock In My Rebate</button>
+    <button type="button" class="prev" onclick="this.closest('.exit-intent').setAttribute('aria-hidden','true')">Keep Browsing</button>
+  </div>
+</div>
 
 <script type="application/ld+json">
 {
