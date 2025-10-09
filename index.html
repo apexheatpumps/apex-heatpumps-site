@@ -44,23 +44,29 @@ header.apx-header{display:flex;align-items:center;gap:18px;justify-content:space
 .apx-call-fab{position:fixed;right:16px;bottom:18px;background:var(--apx-orange);color:#fff;padding:14px 18px;border-radius:999px;box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:1000;font-weight:700}
 @media(min-width:900px){.apx-call-fab{display:none}}
 .apx-contact{position:fixed;left:16px;bottom:18px;z-index:1000}
-.apx-contact__toggle{background:var(--apx-green);color:#fff;border:0;padding:12px 14px;border-radius:10px;font-weight:700;box-shadow:0 10px 20px rgba(11,119,70,.25)}
-.apx-contact__form{display:none;margin-top:8px;padding:12px;background:#fff;border:1px solid #ddd;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,.15);width:min(92vw,360px)}
-.apx-contact__progress{display:none;margin-bottom:8px;font-size:.85rem;color:#666}
-.apx-contact__form input,.apx-contact__form select,.apx-contact__form textarea{width:100%;margin:.4rem 0;padding:.65rem;border:1px solid #ccc;border-radius:8px;font-size:1rem}
-.apx-contact__form input:focus-visible,.apx-contact__form select:focus-visible,.apx-contact__form textarea:focus-visible{outline:2px solid var(--apx-green);outline-offset:1px}
-.apx-contact__controls{display:flex;gap:8px;margin-top:.6rem}
-.apx-contact__controls button{flex:1;border:0;border-radius:8px;padding:.75rem;font-weight:700}
-.apx-contact__controls .prev{background:#f1f3f5;color:#222}
-.apx-contact__controls .next{background:var(--apx-green);color:#fff}
-.apx-contact__form button[type=submit]{width:100%;padding:.75rem;background:var(--apx-orange);color:#fff;border:0;border-radius:8px;font-weight:700;display:none}
-.apx-contact__form[data-step="4"] button[type=submit]{display:block}
+.apx-contact__toggle{background:#0b7;color:#fff;border:0;padding:12px 14px;border-radius:10px;font-weight:700}
+.apx-contact__form{margin-top:8px;padding:12px;background:#fff;border:1px solid #ddd;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,.15);width:min(92vw,340px)}
+.apx-contact__form[hidden]{display:none}
+.apx-contact__form input,.apx-contact__form select,.apx-contact__form textarea{width:100%;margin:.4rem 0;padding:.65rem;border:1px solid #ccc;border-radius:8px}
+.apx-contact__form button{width:100%;padding:.75rem;background:var(--apx-orange);color:#fff;border:0;border-radius:8px;font-weight:700}
+.apx-contact__form button[disabled]{opacity:.7}
+.apx-contact__status{margin:.5rem 0 0;font-size:.9rem;color:#0b7;min-height:1.2em}
+.apx-contact__status.is-error{color:#d22}
 .hp{position:absolute;left:-9999px}
 .portfolio{padding:24px 16px}
 .portfolio h2{margin:0 0 8px}
 .grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
 .grid img{aspect-ratio:4/3;object-fit:cover;border-radius:14px}
 figcaption{font-size:.9rem;color:#555;margin-top:6px}
+.guides{padding:48px 16px;background:#fafafa;border-top:1px solid #eee;border-bottom:1px solid #eee}
+.guides h2{margin-top:0;margin-bottom:16px;text-align:center}
+.guides p{max-width:760px;margin:0 auto 24px auto;color:#444;line-height:1.6}
+.guide-grid{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));max-width:1100px;margin:0 auto}
+.guide-card{background:#fff;border:1px solid #ddd;border-radius:16px;padding:24px;box-shadow:0 12px 30px rgba(14,15,17,.08)}
+.guide-card h3{margin-top:0;margin-bottom:12px;color:var(--apx-dark)}
+.guide-card ol{padding-left:20px;margin:0 0 16px 0;line-height:1.6}
+.guide-card pre{background:#0e0f11;color:#f8f8f2;padding:16px;border-radius:12px;overflow-x:auto;font-size:.9rem;line-height:1.5;margin:0}
+.guide-card code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace}
 .apx-footer{margin-top:48px;padding:24px 16px;background:#f8f8f8;border-top:1px solid #eee}
 .apx-footer nav a{margin-right:12px;text-decoration:underline}
 .exit-intent{position:fixed;inset:0;background:var(--apx-overlay);display:flex;align-items:center;justify-content:center;padding:20px;z-index:2000;opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s ease}
@@ -90,12 +96,14 @@ figcaption{font-size:.9rem;color:#555;margin-top:6px}
 <body>
 
 <header class="apx-header">
-  <a href="/" class="logo" aria-label="APEX Heat Pumps home">APEX Heat Pumps</a>
+  <a href="index.html" class="logo" aria-label="APEX Heat Pumps home">APEX Heat Pumps</a>
   <nav class="apx-nav" aria-label="Primary">
-    <a href="/">Home</a>
-    <a href="/services">Services</a>
-    <a href="/rebates">Rebates</a>
-    <a href="/contact">Contact</a>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <!-- Updated Services link to point to the correct file -->
+    <a href="services.html">Services</a>
+    <a href="rebates.html">Rebates</a>
+    <a href="contact.html">Contact</a>
   </nav>
   <a class="apx-call-desktop" href="tel:6044426711" data-call-tracking="6044426711" data-base-href="tel:6044426711">Call for Free Quote: 604-442-6711</a>
 </header>
@@ -161,52 +169,22 @@ figcaption{font-size:.9rem;color:#555;margin-top:6px}
 
 <a class="apx-call-fab" href="tel:6044426711" aria-label="Call now" data-call-tracking="6044426711" data-base-href="tel:6044426711">📞 CALL NOW</a>
 
-<aside class="apx-contact">
+<aside class="apx-contact" id="contact">
   <button class="apx-contact__toggle" aria-controls="apx-contact-form" aria-expanded="false">Get Free Quote</button>
-  <form id="apx-contact-form" class="apx-contact__form" action="/submit" method="post" novalidate data-step="1">
-    <div class="apx-contact__progress" aria-live="polite">Step <span id="apx-progress-step">1</span> of 4</div>
-    <div class="apx-contact__step" data-step="1">
-      <label class="sr-only" for="apx-name">Name</label>
-      <input id="apx-name" type="text" name="name" placeholder="Your Name" autocomplete="name" required>
-      <div class="apx-contact__controls">
-        <button type="button" class="next" data-next>Next</button>
-      </div>
-    </div>
-    <div class="apx-contact__step" data-step="2" hidden>
-      <label class="sr-only" for="apx-phone">Phone</label>
-      <input id="apx-phone" type="tel" name="phone" placeholder="Phone Number" required inputmode="tel" autocomplete="tel" pattern="[0-9\s\-()+]+">
-      <div class="apx-contact__controls">
-        <button type="button" class="prev" data-prev>Back</button>
-        <button type="button" class="next" data-next>Next</button>
-      </div>
-    </div>
-    <div class="apx-contact__step" data-step="3" hidden>
-      <label class="sr-only" for="apx-email">Email</label>
-      <input id="apx-email" type="email" name="email" placeholder="Email" required autocomplete="email">
-      <label class="sr-only" for="apx-service">Service</label>
-      <select id="apx-service" name="service" required>
-        <option value="Heat Pump Installation">Heat Pump Installation</option>
-        <option value="Emergency Repair">Emergency Repair</option>
-        <option value="Maintenance">Maintenance</option>
-        <option value="Gas Furnace Retrofit">Gas Furnace Retrofit</option>
-      </select>
-      <div class="apx-contact__controls">
-        <button type="button" class="prev" data-prev>Back</button>
-        <button type="button" class="next" data-next>Next</button>
-      </div>
-    </div>
-    <div class="apx-contact__step" data-step="4" hidden>
-      <label class="sr-only" for="apx-message">Project details</label>
-      <textarea id="apx-message" name="message" placeholder="Tell us about your project" rows="3"></textarea>
-      <input type="text" name="website" tabindex="-1" autocomplete="off" class="hp">
-      <input type="hidden" name="utm_source" id="apx-utm-source">
-      <input type="hidden" name="utm_medium" id="apx-utm-medium">
-      <input type="hidden" name="utm_campaign" id="apx-utm-campaign">
-      <input type="hidden" name="utm_term" id="apx-utm-term">
-      <input type="hidden" name="utm_content" id="apx-utm-content">
-      <input type="hidden" name="landing_page" id="apx-landing-page">
-      <button type="submit">Get Free Quote</button>
-    </div>
+  <form id="apx-contact-form" class="apx-contact__form" action="https://api.web3forms.com/submit" method="post">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="tel" name="phone" placeholder="Phone Number" required inputmode="tel" pattern="[0-9\s\-()+]+">
+    <input type="email" name="email" placeholder="Email" required>
+    <select name="service" required>
+      <option value="Heat Pump Installation">Heat Pump Installation</option>
+      <option value="Emergency Repair">Emergency Repair</option>
+      <option value="Maintenance">Maintenance</option>
+      <option value="Gas Furnace Retrofit">Gas Furnace Retrofit</option>
+    </select>
+    <textarea name="message" placeholder="Tell us about your project"></textarea>
+    <input type="text" name="website" tabindex="-1" autocomplete="off" class="hp">
+    <button type="submit">Get Free Quote</button>
+    <p class="apx-contact__status" role="status" aria-live="polite"></p>
   </form>
 </aside>
 
@@ -214,48 +192,86 @@ figcaption{font-size:.9rem;color:#555;margin-top:6px}
   <h2>Heat Pump Installations Across Metro Vancouver</h2>
   <div class="grid">
     <figure>
-      <img loading="lazy" width="800" height="1067"
-           src="/images/heat-pump-line-set-cover-vancouver-balcony-install.jpg"
-           alt="Heat pump line set cover and vent installation on high-rise condo balcony in Vancouver, BC">
+      <img src="https://placehold.co/600x400/667eea/white?text=Heat+Pump" alt="Heat Pump">
       <figcaption>High-rise condo line set sealing • Vancouver, BC</figcaption>
     </figure>
     <figure>
-      <img loading="lazy" width="1024" height="683"
-           src="/images/ductless-heat-pump-installation-downtown-vancouver-condo.jpg"
-           alt="New ductless mini-split heat pump installed in a downtown Vancouver condo overlooking BC Place">
+      <img src="https://placehold.co/600x400/667eea/white?text=Heat+Pump" alt="Heat Pump">
       <figcaption>Ductless install • Downtown Vancouver</figcaption>
     </figure>
     <figure>
-      <img loading="lazy" width="768" height="1024"
-           src="/images/airlux-mini-split-heat-pump-installation-surrey-living-room.jpg"
-           alt="Airlux ductless mini-split installed in Surrey living room with line set cover for clean finish">
+      <img src="https://placehold.co/600x400/667eea/white?text=Heat+Pump" alt="Heat Pump">
       <figcaption>Airlux mini-split • Surrey living room</figcaption>
     </figure>
     <figure>
-      <img loading="lazy" width="1024" height="683"
-           src="/images/airlux-ductless-heat-pump-installation-burnaby-condo.jpg"
-           alt="Ductless Airlux heat pump installation in Burnaby condo with protective plastic during setup">
+      <img src="https://placehold.co/600x400/667eea/white?text=Heat+Pump" alt="Heat Pump">
       <figcaption>Condo retrofit • Burnaby</figcaption>
     </figure>
     <figure>
-      <img loading="lazy" width="1024" height="768"
-           src="/images/heat-pump-bedroom-installation-vancouver-bc-place-view.jpg"
-           alt="Ductless heat pump indoor unit installed in bedroom with city view of BC Place Stadium in Vancouver">
+      <img src="https://placehold.co/600x400/667eea/white?text=Heat+Pump" alt="Heat Pump">
       <figcaption>Bedroom unit • Vancouver</figcaption>
     </figure>
     <figure>
-      <img loading="lazy" width="768" height="1024"
-           src="/images/airlux-heat-pump-outdoor-unit-installation-surrey-home.jpg"
-           alt="Airlux outdoor heat pump condenser unit installed outside Surrey home">
+      <img src="https://placehold.co/600x400/667eea/white?text=Heat+Pump" alt="Heat Pump">
       <figcaption>Outdoor condenser • Surrey</figcaption>
     </figure>
     <figure>
-      <img loading="lazy" width="1024" height="683"
-           src="/images/ductless-heat-pump-bedroom-installation-vancouver-highrise.jpg"
-           alt="Ductless heat pump installed in Vancouver high-rise bedroom with teal accent wall">
+      <img src="https://placehold.co/600x400/667eea/white?text=Heat+Pump" alt="Heat Pump">
       <figcaption>High-rise bedroom • Vancouver</figcaption>
     </figure>
   </div>
+</section>
+
+<section class="guides" aria-labelledby="developer-guides">
+  <h2 id="developer-guides">Getting Started with Leading AI APIs</h2>
+  <p>Need to prototype an AI assistant for your project? Follow the quick-start checklists below to authenticate with OpenAI&rsquo;s ChatGPT API and Anthropic&rsquo;s Claude API using their official Python SDKs.</p>
+  <div class="guide-grid">
+    <article class="guide-card" aria-labelledby="openai-guide">
+      <h3 id="openai-guide">1. ChatGPT (OpenAI API)</h3>
+      <ol>
+        <li>Create an OpenAI account at <a href="https://platform.openai.com/signup" rel="noopener" target="_blank">platform.openai.com/signup</a>.</li>
+        <li>Generate an API key from the <strong>API Keys</strong> page in your dashboard.</li>
+        <li>Install the OpenAI Python SDK: <code>pip install openai</code>.</li>
+        <li>Use the sample below to send your first chat completion:</li>
+      </ol>
+      <pre><code>import openai
+
+openai.api_key = "your-api-key-here"
+
+response = openai.ChatCompletion.create(
+    model="gpt-3.5-turbo",
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Hello, who are you?"}
+    ]
+)
+
+print(response["choices"][0]["message"]["content"])</code></pre>
+    </article>
+    <article class="guide-card" aria-labelledby="anthropic-guide">
+      <h3 id="anthropic-guide">2. Claude (Anthropic API)</h3>
+      <ol>
+        <li>Request access at <a href="https://console.anthropic.com/" rel="noopener" target="_blank">console.anthropic.com</a>.</li>
+        <li>After approval, create an API key from your dashboard.</li>
+        <li>Install the Anthropic Python SDK: <code>pip install anthropic</code>.</li>
+        <li>Send a message with the following starter code:</li>
+      </ol>
+      <pre><code>import anthropic
+
+client = anthropic.Anthropic(api_key="your-api-key-here")
+
+response = client.messages.create(
+    model="claude-2.1",
+    max_tokens=128,
+    messages=[
+        {"role": "user", "content": "Hello, who are you?"}
+    ]
+)
+
+print(response.content)</code></pre>
+    </article>
+  </div>
+  <p style="text-align:center;margin-top:32px">Tip: Both platforms support HTTPS requests, streaming responses, and multiple models&mdash;replace <code>"your-api-key-here"</code> with your live secret key before deploying.</p>
 </section>
 
 <footer class="apx-footer">
@@ -268,237 +284,61 @@ figcaption{font-size:.9rem;color:#555;margin-top:6px}
 </footer>
 
 <script>
-document.addEventListener('DOMContentLoaded',()=>{
-  const toggle=document.querySelector('.apx-contact__toggle');
-  const form=document.querySelector('.apx-contact__form');
-  const steps=Array.from(document.querySelectorAll('.apx-contact__step'));
-  const progress=document.getElementById('apx-progress-step');
-  const progressContainer=document.querySelector('.apx-contact__progress');
-  const submitButton=form?.querySelector('button[type="submit"]');
-  const heroCtas=document.querySelectorAll('.hero .btn:not(.emergency)');
-  const callLinks=document.querySelectorAll('[href^="tel:"][data-call-tracking]');
-  const quoteLinks=document.querySelectorAll('[data-trackable-link]');
-  const exitIntent=document.querySelector('.exit-intent');
-  const exitClose=document.querySelector('.exit-intent__close');
-  const exitPrimary=document.querySelector('.exit-intent__dialog .primary');
-  const deadlineEl=document.getElementById('rebate-deadline');
-  const landingInput=document.getElementById('apx-landing-page');
-  const useStepper=window.matchMedia('(max-width: 680px)');
-
-  const storageKey='apx_cta_variant_v1';
-  const variants=[
-    {label:'Book Home Assessment',href:'/quote?cta=assessment'},
-    {label:'Unlock Rebate Savings',href:'/quote?cta=rebate'},
-    {label:'Schedule Heat Pump Quote',href:'/quote?cta=schedule'}
-  ];
-  let variant=localStorage.getItem(storageKey);
-  if(!variant){
-    variant=Math.floor(Math.random()*variants.length).toString();
-    localStorage.setItem(storageKey,variant);
-  }
-  const selected=variants[Number(variant)]||variants[0];
-  heroCtas.forEach(btn=>{
-    btn.textContent=selected.label;
-    btn.setAttribute('href',selected.href);
-    btn.dataset.baseHref=selected.href;
-    btn.dataset.variant=variant;
-  });
-
-  const today=new Date();
-  const deadline=new Date();
-  deadline.setDate(today.getDate()+7);
-  const formattedDeadline=deadline.toLocaleDateString(undefined,{month:'short',day:'numeric'});
-  if(deadlineEl){
-    deadlineEl.textContent=formattedDeadline;
-  }
-
-  if(toggle&&form){
-    toggle.addEventListener('click',()=>{
-      const open=form.style.display==='block';
-      form.style.display=open?'none':'block';
-      toggle.setAttribute('aria-expanded',String(!open));
-      if(!open){
-        const firstInput=form.querySelector('input,select,textarea');
-        firstInput&&firstInput.focus({preventScroll:true});
-      }
-    });
-  }
-
-  const applyStepperMode=isStepper=>{
-    if(!form){
-      return;
+const WEB3FORMS_ACCESS_KEY='a4c3f5af-0f1b-4ca7-9dfd-90c5a7931022';
+const contactToggle=document.querySelector('.apx-contact__toggle');
+const contactForm=document.querySelector('#apx-contact-form');
+if(contactToggle&&contactForm){
+  const honeypot=contactForm.querySelector('.hp');
+  const statusEl=contactForm.querySelector('.apx-contact__status');
+  const submitButton=contactForm.querySelector('button[type="submit"]');
+  contactToggle.addEventListener('click',()=>{
+    const open=contactForm.style.display==='block';
+    contactForm.style.display=open?'none':'block';
+    contactToggle.setAttribute('aria-expanded',String(!open));
+    if(!open&&statusEl){
+      statusEl.textContent='';
+      statusEl.classList.remove('is-error');
     }
-    if(!isStepper){
-      form.dataset.step=String(steps.length);
-      steps.forEach(step=>step.removeAttribute('hidden'));
+  });
+  contactForm.addEventListener('submit',async event=>{
+    event.preventDefault();
+    if(!contactForm.reportValidity()) return;
+    if(honeypot&&honeypot.value.trim()) return;
+    const formData=new FormData(contactForm);
+    formData.append('access_key',WEB3FORMS_ACCESS_KEY);
+    formData.append('from_name','APEX Heat Pumps Website');
+    formData.append('subject','New heat pump quote request');
+    if(statusEl){
+      statusEl.textContent='Sending...';
+      statusEl.classList.remove('is-error');
+    }
+    if(submitButton){
+      submitButton.disabled=true;
+      submitButton.textContent='Sending...';
+    }
+    try{
+      const response=await fetch(contactForm.action,{method:'POST',body:formData,headers:{Accept:'application/json'}});
+      if(!response.ok) throw new Error('Network response was not ok');
+      const data=await response.json();
+      if(data.success){
+        if(statusEl) statusEl.textContent='Thanks! We will reach out shortly.';
+        contactForm.reset();
+      }else{
+        throw new Error(data.message||'Submission failed');
+      }
+    }catch(error){
+      if(statusEl){
+        statusEl.textContent='Sorry, something went wrong. Please call 604-442-6711.';
+        statusEl.classList.add('is-error');
+      }
+    }finally{
       if(submitButton){
-        submitButton.style.display='block';
+        submitButton.disabled=false;
+        submitButton.textContent='Get Free Quote';
       }
-      if(progressContainer){
-        progressContainer.setAttribute('aria-hidden','true');
-        progressContainer.style.display='none';
-      }
-      return;
-    }
-    form.dataset.step='1';
-    steps.forEach(step=>{
-      const isActive=step.dataset.step==='1';
-      step.toggleAttribute('hidden',!isActive);
-    });
-    if(submitButton){
-      submitButton.style.display='none';
-    }
-    if(progress){
-      progress.textContent='1';
-    }
-    if(progressContainer){
-      progressContainer.removeAttribute('aria-hidden');
-      progressContainer.style.display='block';
-    }
-  };
-
-  const setStep=index=>{
-    if(!form||!useStepper.matches){
-      return;
-    }
-    const activeStep=Number(form.dataset.step||1);
-    const nextStep=Math.min(Math.max(index,1),steps.length);
-    if(activeStep===nextStep){
-      return;
-    }
-    form.dataset.step=String(nextStep);
-    steps.forEach(step=>{
-      const isActive=Number(step.dataset.step)===nextStep;
-      step.toggleAttribute('hidden',!isActive);
-    });
-    if(progress){
-      progress.textContent=String(nextStep);
-    }
-    if(submitButton){
-      submitButton.style.display=nextStep===steps.length?'block':'none';
-    }
-    const focusTarget=steps[nextStep-1]?.querySelector('input,textarea,select,button[data-next]');
-    focusTarget&&focusTarget.focus({preventScroll:true});
-  };
-
-  steps.forEach(step=>{
-    step.addEventListener('click',event=>{
-      const target=event.target;
-      if(!(target instanceof HTMLElement)||!useStepper.matches){
-        return;
-      }
-      if(target.matches('[data-next]')){
-        event.preventDefault();
-        const inputs=Array.from(step.querySelectorAll('input,select,textarea'));
-        const isValid=inputs.every(input=>input.checkValidity());
-        if(!isValid){
-          inputs.forEach(input=>input.reportValidity());
-          return;
-        }
-        setStep(Number(step.dataset.step)+1);
-      }
-      if(target.matches('[data-prev]')){
-        event.preventDefault();
-        setStep(Number(step.dataset.step)-1);
-      }
-    });
-  });
-
-  applyStepperMode(useStepper.matches);
-  useStepper.addEventListener('change',event=>{
-    applyStepperMode(event.matches);
-  });
-
-  const params=new URLSearchParams(window.location.search);
-  const utmFields=['utm_source','utm_medium','utm_campaign','utm_term','utm_content'];
-  utmFields.forEach(key=>{
-    const value=params.get(key)||sessionStorage.getItem(key)||'';
-    if(value){
-      sessionStorage.setItem(key,value);
-    }
-    const input=document.getElementById(`apx-${key.replace('utm_','utm-')}`);
-    if(input){
-      input.value=value;
     }
   });
-  if(landingInput){
-    landingInput.value=window.location.href;
-  }
-
-  const assignTracking=(link)=>{
-    const base=link.dataset.baseHref||link.getAttribute('href');
-    if(!base) return;
-    const trackingParams=new URLSearchParams();
-    utmFields.forEach(key=>{
-      const value=sessionStorage.getItem(key)||params.get(key);
-      if(value) trackingParams.set(key,value);
-    });
-    trackingParams.set('variant',variant);
-    const finalHref=`${base}${base.includes('?')?'&':'?'}${trackingParams.toString()}`;
-    if(link.tagName==='A'){
-      link.setAttribute('href',finalHref);
-    }else{
-      link.dataset.href=finalHref;
-    }
-  };
-
-  quoteLinks.forEach(link=>assignTracking(link));
-
-  callLinks.forEach(link=>{
-    const base=link.dataset.baseHref||link.getAttribute('href');
-    if(!base) return;
-    link.addEventListener('click',()=>{
-      const trackingPayload={
-        number:link.dataset.callTracking,
-        utm:utmFields.reduce((acc,key)=>{
-          acc[key]=sessionStorage.getItem(key)||params.get(key)||'';
-          return acc;
-        },{}),
-        variant
-      };
-      if(navigator.sendBeacon){
-        const blob=new Blob([JSON.stringify(trackingPayload)],{type:'application/json'});
-        navigator.sendBeacon('/api/track-call',blob);
-      }
-    },{passive:true});
-    link.setAttribute('href',base);
-  });
-
-  const showExitIntent=()=>{
-    if(sessionStorage.getItem('apx_exit_shown')) return;
-    sessionStorage.setItem('apx_exit_shown','1');
-    exitIntent?.setAttribute('aria-hidden','false');
-  };
-  const hideExitIntent=()=>exitIntent?.setAttribute('aria-hidden','true');
-
-  if(exitIntent){
-    exitIntent.setAttribute('aria-hidden','true');
-    let triggered=false;
-    document.addEventListener('mouseleave',event=>{
-      if(event.clientY>0||triggered) return;
-      triggered=true;
-      showExitIntent();
-    });
-    window.addEventListener('scroll',()=>{
-      if(triggered||window.innerWidth>=900) return;
-      if(window.scrollY>380){
-        triggered=true;
-        showExitIntent();
-      }
-    },{passive:true});
-    exitClose?.addEventListener('click',()=>{
-      hideExitIntent();
-      setTimeout(()=>triggered=false,120000);
-    });
-    exitPrimary?.addEventListener('click',()=>{
-      hideExitIntent();
-      const targetHref=exitPrimary.dataset.href||exitPrimary.getAttribute('href');
-      if(targetHref){
-        window.location.href=targetHref;
-      }
-    });
-  }
-});
+}
 </script>
 
 <div class="exit-intent" role="dialog" aria-modal="true" aria-hidden="true">
