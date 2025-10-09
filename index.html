@@ -42,6 +42,15 @@ header.apx-header{display:flex;align-items:center;gap:18px;justify-content:space
 .portfolio h2{margin:0 0 8px}
 .grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
 figcaption{font-size:.9rem;color:#555;margin-top:6px}
+.guides{padding:48px 16px;background:#fafafa;border-top:1px solid #eee;border-bottom:1px solid #eee}
+.guides h2{margin-top:0;margin-bottom:16px;text-align:center}
+.guides p{max-width:760px;margin:0 auto 24px auto;color:#444;line-height:1.6}
+.guide-grid{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));max-width:1100px;margin:0 auto}
+.guide-card{background:#fff;border:1px solid #ddd;border-radius:16px;padding:24px;box-shadow:0 12px 30px rgba(14,15,17,.08)}
+.guide-card h3{margin-top:0;margin-bottom:12px;color:var(--apx-dark)}
+.guide-card ol{padding-left:20px;margin:0 0 16px 0;line-height:1.6}
+.guide-card pre{background:#0e0f11;color:#f8f8f2;padding:16px;border-radius:12px;overflow-x:auto;font-size:.9rem;line-height:1.5;margin:0}
+.guide-card code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace}
 .apx-footer{margin-top:48px;padding:24px 16px;background:#f8f8f8;border-top:1px solid #eee}
 .apx-footer nav a{margin-right:12px;text-decoration:underline}
 </style>
@@ -128,6 +137,58 @@ figcaption{font-size:.9rem;color:#555;margin-top:6px}
       <figcaption>High-rise bedroom • Vancouver</figcaption>
     </figure>
   </div>
+</section>
+
+<section class="guides" aria-labelledby="developer-guides">
+  <h2 id="developer-guides">Getting Started with Leading AI APIs</h2>
+  <p>Need to prototype an AI assistant for your project? Follow the quick-start checklists below to authenticate with OpenAI&rsquo;s ChatGPT API and Anthropic&rsquo;s Claude API using their official Python SDKs.</p>
+  <div class="guide-grid">
+    <article class="guide-card" aria-labelledby="openai-guide">
+      <h3 id="openai-guide">1. ChatGPT (OpenAI API)</h3>
+      <ol>
+        <li>Create an OpenAI account at <a href="https://platform.openai.com/signup" rel="noopener" target="_blank">platform.openai.com/signup</a>.</li>
+        <li>Generate an API key from the <strong>API Keys</strong> page in your dashboard.</li>
+        <li>Install the OpenAI Python SDK: <code>pip install openai</code>.</li>
+        <li>Use the sample below to send your first chat completion:</li>
+      </ol>
+      <pre><code>import openai
+
+openai.api_key = "your-api-key-here"
+
+response = openai.ChatCompletion.create(
+    model="gpt-3.5-turbo",
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Hello, who are you?"}
+    ]
+)
+
+print(response["choices"][0]["message"]["content"])</code></pre>
+    </article>
+    <article class="guide-card" aria-labelledby="anthropic-guide">
+      <h3 id="anthropic-guide">2. Claude (Anthropic API)</h3>
+      <ol>
+        <li>Request access at <a href="https://console.anthropic.com/" rel="noopener" target="_blank">console.anthropic.com</a>.</li>
+        <li>After approval, create an API key from your dashboard.</li>
+        <li>Install the Anthropic Python SDK: <code>pip install anthropic</code>.</li>
+        <li>Send a message with the following starter code:</li>
+      </ol>
+      <pre><code>import anthropic
+
+client = anthropic.Anthropic(api_key="your-api-key-here")
+
+response = client.messages.create(
+    model="claude-2.1",
+    max_tokens=128,
+    messages=[
+        {"role": "user", "content": "Hello, who are you?"}
+    ]
+)
+
+print(response.content)</code></pre>
+    </article>
+  </div>
+  <p style="text-align:center;margin-top:32px">Tip: Both platforms support HTTPS requests, streaming responses, and multiple models&mdash;replace <code>"your-api-key-here"</code> with your live secret key before deploying.</p>
 </section>
 
 <footer class="apx-footer">
